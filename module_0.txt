@@ -22,3 +22,21 @@ def score_game(game_core):
     print(f"Ваш алгоритм угадывает число в среднем за {score} попыток")
     return(score)
 score_game(game_core_v2)
+
+
+
+---------------------
+'''незнаю нужно ли это, но это то как выгладел бы интерфейс типо этой игры с угадыванием числа эсли бы это делал человек а не функция.'''
+import numpy as np
+count=0
+number = np.random.randint(1,101)
+while True:
+    predict=int(input( 'угадайте число:\n'))
+    count+=1
+    if predict==number:
+        break
+    elif predict>number:
+        print('Угадываемое число меньше чем ваше на',(predict-number)б -)
+    elif number>predict:
+        print('Угадываемое число больше чем ваше на',(number-predict))
+print (f"Вы угадали число {number} за {count} попыток.")
