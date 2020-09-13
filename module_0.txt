@@ -36,7 +36,7 @@ while True:
     if predict==number:
         break
     elif predict>number:
-        print('Угадываемое число меньше чем ваше на',(predict-number)б -)
+        print('Угадываемое число меньше чем ваше на',(predict-number))
     elif number>predict:
         print('Угадываемое число больше чем ваше на',(number-predict))
 print (f"Вы угадали число {number} за {count} попыток.")
