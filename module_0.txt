@@ -1,16 +1,18 @@
 import numpy as np
 def game_core_v2(number):
-    '''Сначала устанавливаем любое random число, а потом уменьшаем или увеличиваем на 
-    разницу между числом которое задала функцйия и числом а тем которе нужно угадать.
-       Функция принимает загаданное число и возвращает число попыток'''
+    '''Устанавливаем что наше предположение это 90. 
+    До тех пор пока число меньше чем наше предположение,то отниманием от нашего предположения 10.
+    Когда число больше -  то идем циклом увеличивая предположение на 1. '''
     count = 1
-    predict = np.random.randint(1,101)
-    while number != predict:
+    predict = 90
+    while predict > number:
+        predict -=10
         count+=1
-        if number > predict: predict = predict + (number-predict)
-        elif number < predict: predict =predict - (predict-number)
+    if predict<number: 
+        while number != predict:
+                predict += 1
+                count+=1
     return(count) # выход из цикла, если угадали
-
 def score_game(game_core):
     '''Запускаем игру 1000 раз, чтобы узнать, как быстро игра угадывает число.
     это код для проверки количества попыток-взят из модуля '''
@@ -23,21 +25,3 @@ def score_game(game_core):
     print(f"Ваш алгоритм угадывает число в среднем за {score} попыток")
     return(score)
 score_game(game_core_v2)
-
-
-
----------------------
-'''незнаю нужно ли это, но это то как выгладел бы интерфейс типо этой игры'''
-import numpy as np
-count=0
-number = np.random.randint(1,101)
-while True:
-    predict=int(input( 'угадайте число:\n'))
-    count+=1
-    if predict==number:
-        break
-    elif predict>number:
-        print('Угадываемое число меньше чем ваше на',(predict-number))
-    elif number>predict:
-        print('Угадываемое число больше чем ваше на',(number-predict))
-print (f"Вы угадали число {number} за {count} попыток.")
